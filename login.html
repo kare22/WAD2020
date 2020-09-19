@@ -3,8 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" href="resources/css/styles.css">
 </head>
 <body>
+<div class="form_body">
+    <img class="sticky_notes" src="resources/images/Screenshot_148.png" alt="Sticky notes">
 
+        <form id="login_form" action="">
+        <h3 class="form_item">Welcome to postIt!</h3>
+
+        <a class="form_item" href="#">Create an Account</a>
+        <h4 class="form_item">Or</h4>
+        <h3 class="form_item">Please Log In</h3>
+
+        <input class="form_item" type="text" placeholder="username">
+        <input class="form_item" type="password" placeholder="password">
+        <button class="form_item login_button" type="submit">Log in</button>
+
+        <a class="form_item" href="#">Forgot password?</a>
+    </form>
+</div>
+
+<script>
+    const loginForm = document.getElementById('login_form');
+    loginForm.addEventListener('submit', login);
+
+    function login(e){
+        e.preventDefault();
+        window.location = 'index.html';
+    }
+</script>
 </body>
 </html>
