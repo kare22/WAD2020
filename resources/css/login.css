@@ -1,8 +1,4 @@
-body {
-    background-color: aqua;
-    display: flex;
-    justify-content: center;
-}
+@import "global.css";
 
 .form_body {
     background-color: white;
@@ -17,12 +13,12 @@ body {
 }
 
 #login_form {
-    margin-top: -5rem;
+    margin-top: -3.5rem;
 }
 
 #login_form > input {
     /*margin: 1rem;*/
-    border-radius: 5px;
+    border-radius: 4px;
     border-color: gray;
     padding: 0.5rem;
 }
@@ -39,9 +35,9 @@ body {
 }
 
 .sticky_notes {
-    height: 6rem;
-    width: 6rem;
+    height: 5rem;
+    width: 5rem;
     display: flex;
     justify-content: center;
-    margin: -3.5rem auto 0.8rem -5.5rem;
+    margin: -5.0rem auto 0.8rem -5.5rem;
 }
