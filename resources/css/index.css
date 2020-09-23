@@ -1,1 +1,25 @@
 @import "global.css";
+
+.main-content {
+    background-color: white;
+
+}
+
+.main-content {
+    padding-top: 2rem;
+    margin-left: 30%;
+    margin-right: 30%;
+    background-color: white;
+
+}
+
+.game-content {
+    margin-bottom: 2rem;
+    -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.50) !important;
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+.game-content > img {
+    width: 100%;
+}
