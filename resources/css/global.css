@@ -47,9 +47,15 @@ body {
 }
 
 .nav_search button {
+    font-family: "Comic Sans MS", sans-serif !important;
     padding: 0.25rem 1rem;
     margin: 0 0 0 -1rem;
     color: white;
     background-color: blue;
     cursor: pointer;
+}
+
+.nav_search button:hover {
+    background-color: aqua;
+    border-color: aqua;
 }

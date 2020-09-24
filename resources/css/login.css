@@ -25,13 +25,16 @@
 
 .login_button {
     color: white;
+    font-family: "Comic Sans MS", sans-serif !important;
     background-color: blue;
     border-radius: 5px;
     padding: 0.5rem 1.2rem;
     cursor: pointer;
 }
 .login_button:hover {
-    background-color: black;
+    background-color: yellow;
+    color: grey;
+    border-color: grey;
 }
 
 .sticky_notes {

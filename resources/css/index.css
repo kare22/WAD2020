@@ -2,7 +2,6 @@
 
 .main-content {
     background-color: white;
-
 }
 
 .main-content {
@@ -10,7 +9,6 @@
     margin-left: 30%;
     margin-right: 30%;
     background-color: white;
-
 }
 
 .game-content {
@@ -22,4 +20,19 @@
 
 .game-content > img {
     width: 100%;
+}
+
+.like-button {
+    color: white;
+    font-family: "Comic Sans MS", sans-serif !important;
+    background-color: aqua;
+    border: 0px;
+    border-radius: 10px;
+    padding: 1rem;
+
+    cursor: pointer;
+}
+.like-button:hover {
+    background-color: yellow;
+    color: grey;
 }
