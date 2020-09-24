@@ -1,0 +1,46 @@
+@import "global.css";
+
+.form_body {
+    background-color: white;
+    margin-top: 14rem;
+    padding: 6rem 6rem 3rem;
+}
+
+.form_item {
+    display: flex;
+    justify-content: center;
+    margin: 0.8rem auto;
+}
+
+#login_form {
+    margin-top: -3.5rem;
+}
+
+#login_form > input {
+    /*margin: 1rem;*/
+    border-radius: 4px;
+    border-color: gray;
+    padding: 0.5rem;
+}
+
+.login_button {
+    color: white;
+    font-family: "Comic Sans MS", sans-serif !important;
+    background-color: blue;
+    border-radius: 5px;
+    padding: 0.5rem 1.2rem;
+    cursor: pointer;
+}
+.login_button:hover {
+    background-color: yellow;
+    color: grey;
+    border-color: grey;
+}
+
+.sticky_notes {
+    height: 5rem;
+    width: 5rem;
+    display: flex;
+    justify-content: center;
+    margin: -5.0rem auto 0.8rem -5.5rem;
+}
