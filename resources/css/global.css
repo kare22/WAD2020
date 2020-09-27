@@ -4,6 +4,14 @@ body {
     font-family: "Comic Sans MS", sans-serif !important;
 }
 
+img + p {
+    color: #302400;
+  }
+
+img ~ p {
+    font-weight: bold;
+}
+
 .container {
     display: flex;
     justify-content: center;
