@@ -202,3 +202,32 @@ nav div.avatar-container {
 .like-button.liked {
     background-color: #01579b;
 }
+
+.profile-info-dropdown {
+    background-color: white;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.35)!important;
+    height: auto;
+    display: none;
+    position: absolute;
+    margin-top: 0.4rem;
+    text-align: left !important;
+    right: 1rem;
+}
+.profile-info-dropdown:before, .profile-info-dropdown:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 100%;
+    width: 0;
+    height: 0;
+}
+
+.profile-info-dropdown:after {
+    right: 1rem;
+    border: 10px solid transparent;
+    border-bottom-color: #01579b;
+}
+
+.profile-link {
+    border-top: 1px solid black;
+}

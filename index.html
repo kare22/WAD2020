@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <script src="./jquery.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="res/css/style.css">
     <title>postIt! Just Post It</title>
@@ -16,7 +17,17 @@
           <input type="text" name="search"><button type="button">Search</button>
         </div>
         <div class="avatar-container">
-          <img src="res/images/avatar.png" class="avatar" alt="Me">
+          <img id="post-author-img" src="res/images/avatar.png" class="avatar" alt="Me">
+          <div class="profile-info-dropdown">
+            <div id="profile-name"></div>
+            <div id="profile-email"></div>
+            <div class="profile-link">
+              <a href="browse.html">Browse</a>
+            </div>
+            <div class="profile-link">
+              <a href="login.html">Log Out</a>
+            </div>
+          </div>
         </div>
       </nav>
     </header>
@@ -74,7 +85,29 @@
           <button type="button" name="like" class="like-button liked">10k</button>
         </div>
       </div>
-
+      <script src="res/js/api.js"></script>
+      <script>
+        Get('users/1').then(res => {
+          $('#post-author-img').hover(() => {
+            $('.profile-info-dropdown').show();
+          })
+          $('.avatar-container').hover((e) => {
+            $('.profile-info-dropdown').hide();
+          });
+          if(res){
+            console.log('res', res);
+            const firstName = res && res.firstname || '';
+            const lastName = res && res.lastname || '';
+            const email = res && res.email || '';
+            const avatar = res && res.avatar || '';
+            $('#profile-name').html( firstName + (firstName && ' ') + lastName || 'Name not found!');
+            $('#profile-email').html(email || 'Email not found!');
+            if(avatar){
+              $('#post-author-img').attr('src', avatar);
+            }
+          }
+        })
+      </script>
     </section>
   </body>
 </html>
