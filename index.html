@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <script src="./jquery.js"></script>
+    <script src="res/js/jquery.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="res/css/style.css">
     <title>postIt! Just Post It</title>
@@ -95,7 +95,6 @@
             $('.profile-info-dropdown').hide();
           });
           if(res){
-            console.log('res', res);
             const firstName = res && res.firstname || '';
             const lastName = res && res.lastname || '';
             const email = res && res.email || '';
