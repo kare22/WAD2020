@@ -10,4 +10,4 @@ function Get(url) {
     }).fail((response) => {
         console.log(response);
     });
-};
+}
