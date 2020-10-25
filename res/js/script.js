@@ -1,3 +1,5 @@
+let posts = []
+
 $(function () {
     $('#post-author-img').hover(() => {
         $('.profile-info-dropdown').show();
@@ -25,3 +27,23 @@ $(function () {
     })
 
 })
+
+function loadPostsInfo() {
+    return $.get(
+        {
+            url: "https://private-anon-a152871d21-wad20postit.apiary-mock.com/posts",
+            success: function ( response ) {
+                for (let post of response) {
+                    posts.push(new Post(post.text, post.createTime, post.likes, post.authorPicture, post.authorName))
+                }
+            },
+            error: function () {
+                alert('Could not display posts data.')
+            }
+        }
+    )
+}
+
+function displayPostsInfo() {
+
+}
