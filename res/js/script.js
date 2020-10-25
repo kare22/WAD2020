@@ -6,14 +6,14 @@ $(function () {
         $('.profile-info-dropdown').hide();
     });
     Get('users/1').then(res => {
-        if(res){
+        if (res) {
             const firstName = res && res.firstname || '';
             const lastName = res && res.lastname || '';
             const email = res && res.email || '';
             const avatar = res && res.avatar || '';
-            $('#profile-name').html( firstName + (firstName && ' ') + lastName || 'Name not found!');
+            $('#profile-name').html(firstName + (firstName && ' ') + lastName || 'Name not found!');
             $('#profile-email').html(email || 'Email not found!');
-            if(avatar){
+            if (avatar) {
                 $('#post-author-img').attr('src', avatar);
             }
         }
@@ -27,30 +27,41 @@ $(function () {
                 console.log('post', post);
                 const firstname = post.author && post.author.firstname || '-';
                 const lastname = post.author && post.author.lastname || '-';
-                const avatar = res && res.author && res.author.avatar || '-';
-                const createTime = res && res.author && res.createTime || '-';
-                const text = res && res.author && res.text || '-';
-                const likes = res && res.author && res.likes || '-';
-                posts +=  `
-              <div class="post">
-                <div class="post-author">
-                          <span class="post-author-info">
-                            <img src="res/images/avatar.png" alt="Post author">
-                            <small style="margin-left: 1rem">${firstname} ${lastname}</small>
-                          </span>
-                  <small>Sep 18, 2020 17:18</small>
-                </div>
-                <div class="post-image">
-                  <img src="res/images/posts/2.jpg" alt="">
-                </div>
-                <div class="post-title">
-                  <h3>Felt cute, might delete later</h3>
-                </div>
-                <div class="post-actions">
-                  <button type="button" name="like" class="like-button liked">10k</button>
-                </div>
-              </div>
-            `
+
+                const url = post && post.media && post.media.url;
+                let newPost = '';
+                newPost += `
+                  <div class="post">
+                    <div class="post-author">
+                              <span class="post-author-info">
+                                <img src="res/images/avatar.png" alt="Post author">
+                                <small style="margin-left: 1rem">${firstname} ${lastname}</small>
+                              </span>
+                      <small>Sep 18, 2020 17:18</small>
+                    </div>`;
+                if (post.media) {
+                    if (post.media.type === 'image') {
+                        newPost += `<div class="post-image">
+                                        <img src="${url}" alt="">
+                                    </div>`
+                    } else if (post.media.type === 'video') {
+                        newPost += `<video controls>
+                                      <source src="${url}" type="video/mp4">
+                                      <source src="${url}" type="video/ogg">
+                                      Your browser does not support video.
+                                    </video>`
+                    }
+
+                }
+
+                newPost += `<div class="post-title">
+                      <h3>Felt cute, might delete later</h3>
+                    </div>
+                    <div class="post-actions">
+                      <button type="button" name="like" class="like-button liked">10k</button>
+                    </div>
+                  </div>`;
+                posts += newPost;
             });
             $('#posts').append(posts);
 
