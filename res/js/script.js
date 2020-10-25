@@ -93,8 +93,8 @@ $(function () {
             $('#subscriptions').append(subscriptions);
 
             $('.follow-button').click(function () {
-                $(this).toggleClass('follow-button followed')
-                $(this).toggleClass('follow-button')
+                $(this).toggleClass('follow-button followed', 'Followed')
+                $(this).toggleClass('follow-button', 'Follow')
             })
         }
     })
