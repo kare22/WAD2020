@@ -22,9 +22,7 @@ $(function () {
     Get('posts').then(res => {
         let posts = '';
         if (res && res.length) {
-            console.log('res', res);
             res.forEach(post => {
-                console.log('post', post);
                 const firstname = post.author && post.author.firstname || '-';
                 const lastname = post.author && post.author.lastname || '-';
                 const avatar = post.author && post.author.avatar || '-';
@@ -71,7 +69,6 @@ $(function () {
             $('#posts').append(posts);
 
             $('.like-button').click(function () {
-                console.log('what');
                 $(this).toggleClass('like-button liked')
                 $(this).toggleClass('like-button')
             })
@@ -81,35 +78,17 @@ $(function () {
     Get('profiles').then(res => {
         let subscriptions = '';
         if (res && res.length) {
-            res.forEach(post => {
-                const firstname = post && post.firstname || '-';
-                const lastname = post && post.lastname || '-';
-                const avatar = post && post.avatar || '-';
-                const createTime = post.createTime || '-';
-                const text = post.text || '';
-                const image = post.media && post.media.url || '';
-                const likes = post.likes || '-';
-                const url = post && post.media && post.media.url;
-
-                let newSub = '';
-                newSub += `
-                  <div class="post">
-                    <div class="post-author">
-                              <span class="post-author-info">
-                                <img src=${avatar} alt="Post author">
-                                <small style="margin-left: 1rem">${firstname} ${lastname}</small>
-                              </span>
-                      <small>${createTime}</small>
+            res.forEach(subscription => {
+                const firstname = subscription.firstname || '-';
+                const lastname = subscription.lastname || '-';
+                const url = subscription.avatar || '';
+                console.log('sub', subscription);
+                subscriptions += `
+                    <div class="subscription" align="center">
+                        ${url && '<img src="'+ url + '" class="subscription-avatar" alt="Me">' || ''}
+                        <p class="subscription-name">${firstname} ${lastname}</p>
+                        <button name="follow" class="follow-button">Follow</button>
                     </div>`;
-
-                newSub += `<div class="post-title">
-                      <h3>${text}</h3>
-                    </div>
-                    <div class="post-actions">
-                      <button type="button" name="follow" class="follow-button">Follow</button>
-                    </div>
-                  </div>`;
-                subscriptions += newSub;
             });
             $('#subscriptions').append(subscriptions);
 

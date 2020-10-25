@@ -25,7 +25,11 @@ body {
 }
 
 .subscription-avatar{
-    width: 10rem !important;
+    width: 8rem !important;
+    height: 8rem !important;
+    object-fit: cover;
+    object-position: 50% 0%;
+    border-radius: 50%;
 }
 
 a {
