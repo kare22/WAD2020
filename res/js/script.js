@@ -1,5 +1,3 @@
-let posts = []
-
 $(function () {
     $('#post-author-img').hover(() => {
         $('.profile-info-dropdown').show();
@@ -21,86 +19,48 @@ $(function () {
         }
     });
 
-    Get('posts').then(answer => {
-        if (res) {
-            let authorFirstname = res && res.author.firstname || '';
-            let authorLastname = res && res.author.lastname || '';
-            let authorAvatar = res && res.author.avatar || '';
-            let createTime = res && res.createTime || '';
-            let text = res && res.text || '';
-            let likes = res && res.likes || '';
-            $('#authorName').html(authorFirstname + (authorFirstname && ' ') + authorLastname || 'Name not found!');
-            $('#authorAvatar').attr('src', authorAvatar);
-            $('#dateTime').html(createTime);
-            $('#postTitle').html(text);
-            $('#likeButton').html(likes);
+    Get('posts').then(res => {
+        let posts = '';
+        if (res && res.length) {
+            console.log('res', res);
+            res.forEach(post => {
+                console.log('post', post);
+                const firstname = post.author && post.author.firstname || '-';
+                const lastname = post.author && post.author.lastname || '-';
+                const avatar = res && res.author && res.author.avatar || '-';
+                const createTime = res && res.author && res.createTime || '-';
+                const text = res && res.author && res.text || '-';
+                const likes = res && res.author && res.likes || '-';
+                posts +=  `
+              <div class="post">
+                <div class="post-author">
+                          <span class="post-author-info">
+                            <img src="res/images/avatar.png" alt="Post author">
+                            <small style="margin-left: 1rem">${firstname} ${lastname}</small>
+                          </span>
+                  <small>Sep 18, 2020 17:18</small>
+                </div>
+                <div class="post-image">
+                  <img src="res/images/posts/2.jpg" alt="">
+                </div>
+                <div class="post-title">
+                  <h3>Felt cute, might delete later</h3>
+                </div>
+                <div class="post-actions">
+                  <button type="button" name="like" class="like-button liked">10k</button>
+                </div>
+              </div>
+            `
+            });
+            $('#posts').append(posts);
+
+            $('.like-button').click(function () {
+                console.log('what');
+                $(this).toggleClass('like-button liked')
+                $(this).toggleClass('like-button')
+            })
         }
-    })
-
-    /*loadPostsInfo()
-        .then(function (response) {
-            let post = new Post(
-                response.title,
-                response.semester,
-                response.grade
-            );
-            displayPostsInfo(post);
-        })
-        .catch(function () {
-            alert('Error loading posts info')
-        })//*/
-
-    $('.like-button').click(function () {
-        $(this).toggleClass('like-button liked')
-        $(this).toggleClass('like-button')
     })
 
 })
 
-/*function loadPostsInfo() {
-    return $.get(
-        {
-            url: "https://private-anon-a152871d21-wad20postit.apiary-mock.com/posts",
-            success: function ( response ) {
-                for (let post of response) {
-                    let author = post.author;
-                    let postAuthorFirstname = author.firstname;
-                    let postAuthorLastname = author.lastname;
-                    let postAuthorAvatar = author.avatar;
-                    if (post.media === null) {
-                        posts.push(new Post(postAuthorFirstname, postAuthorLastname, postAuthorAvatar, post.text, post.createTime, post.likes))
-                    }
-                    posts.push(new Post(postAuthorFirstname, postAuthorLastname, postAuthorAvatar, post.text, post.createTime, post.media, post.likes))
-                }
-            },
-            error: function () {
-                alert('Could not load posts data.')
-            }
-        }
-    )
-} //*/
-
-/*function displayPostsInfo() {
-    $('post')
-}//*/
-
-/*function getPosts() {
-    Get('posts').done(answer => {
-        carsTable.rows().remove();
-        let out = [];
-        answer.forEach((car, index) => {
-            out.push([
-                `<div id="car_reg_nr_${car.uuid}" class="car_row">${car.reg_nr}</div>`,
-                `<div id="car_reg_nr_${car.uuid}" class="car_row">${car.model}</div>`,
-                `<div id="car_reg_nr_${car.uuid}" class="car_row">${displayAdditionalInfo(car.additional_info)}</div>`,
-                `<div id="car_reg_nr_${car.uuid}" class="car_row">${car.client.name}</div>`,
-                `<i id="edit-car-row_${car.uuid}" class="fa fa-pen edit_row"></i>`
-            ]);
-        });
-
-        carsTable.rows.add(out).draw(false);
-        setState('cars', answer);
-    }).fail(answer => {
-        alert('Vigane ühendus andmebaasiga!')
-    });
-}; //*/
