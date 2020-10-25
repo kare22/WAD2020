@@ -27,8 +27,33 @@ $(function () {
                 console.log('post', post);
                 const firstname = post.author && post.author.firstname || '-';
                 const lastname = post.author && post.author.lastname || '-';
-
+                const avatar = post.author && post.author.avatar || '-';
+                const createTime = post.createTime || '-';
+                const text = post.text || '';
+                const image = post.media && post.media.url || '';
+                const likes = post.likes || '-';
                 const url = post && post.media && post.media.url;
+
+                posts +=  `
+              <div class="post">
+                <div class="post-author">
+                          <span class="post-author-info">
+                            <img src=${avatar} alt="Post author">
+                            <small style="margin-left: 1rem">${firstname} ${lastname}</small>
+                          </span>
+                  <small>${createTime}</small>
+                </div>
+                <div class="post-image">
+                  <img src=${image} alt="">
+                </div>
+                <div class="post-title">
+                  <h3>${text}</h3>
+                </div>
+                <div class="post-actions">
+                  <button type="button" name="like" class="like-button">${likes}</button>
+                </div>
+              </div>
+            `
                 let newPost = '';
                 newPost += `
                   <div class="post">
