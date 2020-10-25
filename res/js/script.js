@@ -82,7 +82,6 @@ $(function () {
                 const firstname = subscription.firstname || '-';
                 const lastname = subscription.lastname || '-';
                 const url = subscription.avatar || '';
-                console.log('sub', subscription);
                 subscriptions += `
                     <div class="subscription" align="center">
                         ${url && '<img src="'+ url + '" class="subscription-avatar" alt="Me">' || ''}
@@ -95,6 +94,12 @@ $(function () {
             $('.follow-button').click(function () {
                 $(this).toggleClass('follow-button followed')
                 $(this).toggleClass('follow-button')
+                const content = $(this).html();
+                if(content === 'Follow'){
+                    $(this).html('Followed');
+                } else if(content === 'Followed') {
+                    $(this).html('Follow');
+                }
             })
         }
     })
