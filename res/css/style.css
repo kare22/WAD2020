@@ -15,6 +15,19 @@ body {
     color: #263238;
 }
 
+.subscription {
+    border: #4d4d4d 0.1rem solid;
+    border-radius: 15px;
+    width: 100% !important;
+    height: 20rem !important;
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.subscription-avatar{
+    width: 10rem !important;
+}
+
 a {
     color: #40c4ff;
 }
