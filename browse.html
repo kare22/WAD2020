@@ -2,9 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="res/css/style.css">
     <title>Browse</title>
 </head>
 <body>
-Browse
+<header>
+    <nav>
+        <div class="logo-container">
+            <img src="res/images/logo.png" alt="postIt">
+        </div>
+        <div class="search-container">
+            <input type="text" name="search"><button type="button">Search</button>
+        </div>
+        <div class="avatar-container">
+            <img id="post-author-img" src="res/images/avatar.png" class="avatar" alt="Me">
+            <div class="profile-info-dropdown">
+                <div id="profile-name"></div>
+                <div id="profile-email"></div>
+                <div class="profile-link">
+                    <a href="browse.html">Browse</a>
+                </div>
+                <div class="profile-link">
+                    <a href="login.html">Log Out</a>
+                </div>
+            </div>
+        </div>
+        <div class="profile">
+            <div class="profile-title">
+                <h3>Name</h3>
+            </div>
+            <div class="avatar-container">
+                <img id="post-author-img" src="res/images/avatar.png" class="avatar" alt="Profile photo">
+            </div>
+            <div class="profile-actions">
+                <button type="button" name="follow" class="follow-button"></button>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section id="profiles" class="main-container">
+
+</section>
 </body>
 </html>
