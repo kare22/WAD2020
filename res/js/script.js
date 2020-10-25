@@ -77,8 +77,8 @@ function getPosts() {
                 `<div id="car_reg_nr_${car.uuid}" class="car_row">${car.reg_nr}</div>`,
                 `<div id="car_reg_nr_${car.uuid}" class="car_row">${car.model}</div>`,
                 `<div id="car_reg_nr_${car.uuid}" class="car_row">${displayAdditionalInfo(car.additional_info)}</div>`,
-                <div id='car_reg_nr_${car.uuid}' class="car_row">${car.client.name}</div>,
-                <i id="edit-car-row_${car.uuid}" class="fa fa-pen edit_row"></i>
+                `<div id='car_reg_nr_${car.uuid}' class="car_row">${car.client.name}</div>`,
+                `<i id="edit-car-row_${car.uuid}" class="fa fa-pen edit_row"></i>`
             ]);
         });
 
