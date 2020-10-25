@@ -34,35 +34,15 @@ $(function () {
                 const likes = post.likes || '-';
                 const url = post && post.media && post.media.url;
 
-                posts +=  `
-              <div class="post">
-                <div class="post-author">
-                          <span class="post-author-info">
-                            <img src=${avatar} alt="Post author">
-                            <small style="margin-left: 1rem">${firstname} ${lastname}</small>
-                          </span>
-                  <small>${createTime}</small>
-                </div>
-                <div class="post-image">
-                  <img src=${image} alt="">
-                </div>
-                <div class="post-title">
-                  <h3>${text}</h3>
-                </div>
-                <div class="post-actions">
-                  <button type="button" name="like" class="like-button">${likes}</button>
-                </div>
-              </div>
-            `
                 let newPost = '';
                 newPost += `
                   <div class="post">
                     <div class="post-author">
                               <span class="post-author-info">
-                                <img src="res/images/avatar.png" alt="Post author">
+                                <img src=${avatar} alt="Post author">
                                 <small style="margin-left: 1rem">${firstname} ${lastname}</small>
                               </span>
-                      <small>Sep 18, 2020 17:18</small>
+                      <small>${createTime}</small>
                     </div>`;
                 if (post.media) {
                     if (post.media.type === 'image') {
@@ -80,10 +60,10 @@ $(function () {
                 }
 
                 newPost += `<div class="post-title">
-                      <h3>Felt cute, might delete later</h3>
+                      <h3>${text}</h3>
                     </div>
                     <div class="post-actions">
-                      <button type="button" name="like" class="like-button liked">10k</button>
+                      <button type="button" name="like" class="like-button">${likes}</button>
                     </div>
                   </div>`;
                 posts += newPost;
