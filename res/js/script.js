@@ -30,6 +30,7 @@ $(function () {
                 const avatar = post.author && post.author.avatar || '-';
                 const createTime = post.createTime || '-';
                 const text = post.text || '';
+                const image = post.media && post.media.url || '';
                 const likes = post.likes || '-';
                 posts +=  `
               <div class="post">
@@ -41,7 +42,7 @@ $(function () {
                   <small>${createTime}</small>
                 </div>
                 <div class="post-image">
-                  <img src="res/images/posts/2.jpg" alt="">
+                  <img src=${image} alt="">
                 </div>
                 <div class="post-title">
                   <h3>${text}</h3>
