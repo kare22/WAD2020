@@ -27,27 +27,27 @@ $(function () {
                 console.log('post', post);
                 const firstname = post.author && post.author.firstname || '-';
                 const lastname = post.author && post.author.lastname || '-';
-                const avatar = res && res.author && res.author.avatar || '-';
-                const createTime = res && res.author && res.createTime || '-';
-                const text = res && res.author && res.text || '-';
-                const likes = res && res.author && res.likes || '-';
+                const avatar = post.author && post.author.avatar || '-';
+                const createTime = post.createTime || '-';
+                const text = post.text || '';
+                const likes = post.likes || '-';
                 posts +=  `
               <div class="post">
                 <div class="post-author">
                           <span class="post-author-info">
-                            <img src="res/images/avatar.png" alt="Post author">
+                            <img src=${avatar} alt="Post author">
                             <small style="margin-left: 1rem">${firstname} ${lastname}</small>
                           </span>
-                  <small>Sep 18, 2020 17:18</small>
+                  <small>${createTime}</small>
                 </div>
                 <div class="post-image">
                   <img src="res/images/posts/2.jpg" alt="">
                 </div>
                 <div class="post-title">
-                  <h3>Felt cute, might delete later</h3>
+                  <h3>${text}</h3>
                 </div>
                 <div class="post-actions">
-                  <button type="button" name="like" class="like-button liked">10k</button>
+                  <button type="button" name="like" class="like-button">${likes}</button>
                 </div>
               </div>
             `
