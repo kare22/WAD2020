@@ -222,11 +222,10 @@ nav div.avatar-container {
 
 .follow-button {
     background-color: #8a8a8a;
-    width: 60px;
+    width: 80px;
     height: 25px;
-    padding-left: 23px;
     line-height: 10px;
-    text-align: center;
+    text-align: left;
     border: none;
 }
 
