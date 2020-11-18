@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    {{ posts }}
+    {{ posts }}<br><br><br>
+    {{ profiles }}<br><br><br>
+    {{ currentUser }}<br>
   </div>
 </template>
 
@@ -13,10 +15,16 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({posts: 'posts/getPosts'}),
+    ...mapGetters({
+      posts: 'posts/getPosts',
+      profiles: 'users/getProfiles',
+      currentUser: 'users/getCurrentUser',
+    }),
   },
   mounted() {
     this.$store.dispatch('posts/fetchPosts');
+    this.$store.dispatch('users/fetchProfiles');
+    this.$store.dispatch('users/fetchCurrentUser', {id: 1});
   },
 }
 </script>
