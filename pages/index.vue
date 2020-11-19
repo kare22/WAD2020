@@ -10,9 +10,9 @@
 import {mapGetters} from 'vuex';
 
 export default {
-  beforeRouteEnter(to, from, next) {
-    next({name: 'login'});
-  },
+  // beforeRouteEnter(to, from, next) {
+  //   next({name: 'login'});
+  // },
   data() {
     return {
     }
@@ -25,6 +25,7 @@ export default {
     }),
   },
   mounted() {
+    console.log('aaa');
     this.$store.dispatch('posts/fetchPosts');
     this.$store.dispatch('users/fetchProfiles');
     this.$store.dispatch('users/fetchCurrentUser', {id: 1});

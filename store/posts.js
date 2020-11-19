@@ -13,6 +13,7 @@ const mutations = {
 
 const actions = {
   fetchPosts({ commit }) {
+    console.log('ahh');
     this.$axios.get('posts').then(({data}) => {
       commit('setPosts', data)
     })
