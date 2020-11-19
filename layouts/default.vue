@@ -1,7 +1,9 @@
 <template>
   <div>
     <Navbar v-if="$route.name !== 'login'" />
-    <Nuxt />
+    <div name="defaultBody" class="container">
+      <Nuxt />
+    </div>
   </div>
 </template>
 
