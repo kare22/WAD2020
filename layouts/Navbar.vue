@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" @mouseleave="hoverProfileLeave">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="row w-100">
       <div class="col-3">
         <img class="ml-2" src="/logo.png" alt="postIt">
@@ -11,7 +11,7 @@
       <div class="col-3 text-right avatar-container">
         <img v-if="currentUser" id="post-author-img" @mouseover="hoverProfile"
              class="subscription-avatar ml-2" :src="currentUser.avatar" alt="postIt">
-        <div ref="dropdown" class="profile-info-dropdown">
+        <div ref="dropdown" class="profile-info-dropdown" >
           <div id="profile-name" class="my-2">{{currentUser.firstname + (currentUser.firstname && ' ')  + currentUser.lastname}}</div>
           <div id="profile-email" class="my-2">{{currentUser.email}}</div>
           <div class="profile-link mt-3 mb-2">
