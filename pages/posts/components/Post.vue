@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="post">
+    <div class="post pb-3">
       <div class="post-author">
         <span class="post-author-info">
           <img :src="authorAvatar" alt="Post author">
@@ -16,12 +16,11 @@
         <source :src="url" type="video/ogg">
         Your browser does not support video.
       </video>
-      <h3>{{ post.text || '' }}</h3>
-      <div class="post-actions">
+      <h3 class="pl-3 mt-2">{{ post.text || '' }}</h3>
+      <div class="post-actions pl-3">
         <button @click="likeButtonPress" type="button" name="like" :class="`like-button btn btn-${pressed ? 'primary' : 'dark'}`">{{ post.likes || '' }}</button>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -70,7 +69,7 @@ export default {
 <style scoped>
 
 .post {
-  width: 80%;
+  width: 60%;
   margin: 15px auto;
   box-shadow: 0 0 15px rgba(38, 50, 56, 0.33);
   border-radius: 5px;

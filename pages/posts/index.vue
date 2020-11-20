@@ -30,5 +30,6 @@ export default {
 <style scoped>
 .postsPanel {
   background-color: white;
+
 }
 </style>
