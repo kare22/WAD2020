@@ -58,6 +58,12 @@ html {
 <script>
 import Navbar from '@/layouts/Navbar';
 export default {
-  components: { Navbar }
+  components: { Navbar },
+  mounted() {
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start()
+      setTimeout(() => this.$nuxt.$loading.finish(), 500)
+    })
+  }
 }
 </script>
