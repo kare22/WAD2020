@@ -1,11 +1,7 @@
 <template>
   <div>
-    <div class="row">
-      <div class="col-3"></div>
-      <div class="col-6 postsPanel">
-        <Post v-for="(post, postIndex) in posts" :key="postIndex" :post="post"/>
-      </div>
-      <div class="col-3"></div>
+    <div class="postsPanel py-3">
+      <Post v-for="(post, postIndex) in posts" :key="postIndex" :post="post"/>
     </div>
   </div>
 </template>
@@ -23,13 +19,10 @@ export default {
   computed: {
     ...mapGetters({
       posts: 'posts/getPosts',
-      profiles: 'users/getProfiles',
-      currentUser: 'users/getCurrentUser',
     }),
   },
   mounted() {
     this.$store.dispatch('posts/fetchPosts');
-    this.$store.dispatch('users/fetchProfiles');
   }
 }
 </script>

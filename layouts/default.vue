@@ -7,16 +7,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  created() {
-    this.$store.dispatch('posts/fetchPosts');
-    this.$store.dispatch('users/fetchProfiles');
-    this.$store.dispatch('users/fetchCurrentUser', {id: 1});
-  }
-}
-</script>
-
 <style>
 
 button:hover {
@@ -64,6 +54,6 @@ export default {
       this.$nuxt.$loading.start()
       setTimeout(() => this.$nuxt.$loading.finish(), 500)
     })
-  }
+  },
 }
 </script>

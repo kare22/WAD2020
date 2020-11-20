@@ -18,7 +18,7 @@
       </video>
       <h3>{{ post.text || '' }}</h3>
       <div class="post-actions">
-        <button type="button" name="like" class="like-button">{{ post.likes || '' }}</button>
+        <button @click="likeButtonPress" type="button" name="like" :class="`like-button btn btn-${pressed ? 'primary' : 'dark'}`">{{ post.likes || '' }}</button>
       </div>
     </div>
 
@@ -28,6 +28,11 @@
 <script>
 export default {
   name: 'Post',
+  data() {
+    return {
+      pressed: false,
+    };
+  },
   computed: {
     authorFirstname() {
       return this.post?.author?.firstname || ''
@@ -46,6 +51,11 @@ export default {
     },
     mediaType() {
       return this.post?.media?.type || null
+    },
+  },
+  methods: {
+    likeButtonPress() {
+      this.pressed = !this.pressed;
     },
   },
   props: {
@@ -128,7 +138,6 @@ export default {
   background-size: 15px;
   background-repeat: no-repeat;
   background-position: 5px center;
-  background-color: #8a8a8a;
   width: 60px;
   height: 25px;
   padding-left: 23px;

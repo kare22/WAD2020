@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="row w-100">
+    <div class="row w-100" >
       <div class="col-3">
         <img class="ml-2" src="/logo.png" alt="postIt">
       </div>
@@ -9,9 +9,9 @@
         <button class="btn btn-primary">Search</button>
       </div>
       <div class="col-3 text-right avatar-container">
-        <img v-if="currentUser" id="post-author-img" @mouseover="hoverProfile"
+        <img v-if="currentUser" id="post-author-img" @mouseover="showDropdown = true"
              class="subscription-avatar ml-2" :src="currentUser.avatar" alt="postIt">
-        <div ref="dropdown" class="profile-info-dropdown" >
+        <div v-if="showDropdown" class="profile-info-dropdown" @mouseleave="showDropdown = false">
           <div id="profile-name" class="my-2">{{currentUser.firstname + (currentUser.firstname && ' ')  + currentUser.lastname}}</div>
           <div id="profile-email" class="my-2">{{currentUser.email}}</div>
           <div class="profile-link mt-3 mb-2">
@@ -32,18 +32,15 @@ import {mapGetters} from 'vuex';
 
 export default {
   name: 'Navbar',
+  data() {
+    return {
+      showDropdown: false,
+    };
+  },
   computed: {
     ...mapGetters({
       currentUser: 'users/getCurrentUser',
     }),
-  },
-  methods: {
-    hoverProfile() {
-      this.$refs['dropdown'].style.display =  'block';
-    },
-    hoverProfileLeave() {
-      this.$refs['dropdown'].style.display =  'none';
-    },
   },
   created() {
     this.$store.dispatch('users/fetchCurrentUser', {id: 1});
@@ -57,8 +54,8 @@ img {
 }
 
 .subscription-avatar{
-  width: 2.5rem !important;
-  height: 2.5rem !important;
+  width: 2rem !important;
+  height: 2rem !important;
   object-fit: cover;
   object-position: 50% 0%;
   border-radius: 50%;
@@ -70,11 +67,10 @@ img {
   background-color: white;
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.35)!important;
   height: auto;
-  display: none;
   position: absolute;
   margin-top: 0.4rem;
   text-align: left !important;
-  right: 0.6rem;
+  right: 0.3rem;
 }
 
 .profile-info-dropdown:before, .profile-info-dropdown:after {
