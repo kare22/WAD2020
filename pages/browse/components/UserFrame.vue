@@ -70,15 +70,16 @@ export default {
 
 .follow-button {
   background-color: #8a8a8a;
-  width: 80px;
-  height: 25px;
+  width: 100px;
+  height: 30px;
   line-height: 10px;
-  text-align: left;
+  text-align: center;
   border: none;
 }
 
 .follow-button.followed {
   background-color: blueviolet;
+  text-align: center;
   color: white;
 }
 
