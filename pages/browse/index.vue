@@ -1,8 +1,6 @@
 <template>
-  <div class="text-center">
-
+  <div class="usersPanel">
     <UserFrame v-for="user in profiles" :user="user" :key="user.id"/>
-
   </div>
 </template>
 
@@ -25,5 +23,8 @@ export default {
 </script>
 
 <style scoped>
-
+.usersPanel {
+  background-color: white;
+  place-content: center;
+}
 </style>
