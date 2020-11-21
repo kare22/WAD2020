@@ -1,13 +1,13 @@
 <template>
-  <div>
-    <div class="avatar-container">
-      <img :src="authorAvatar" alt="profile">
-      <div style="margin-left: 1rem">{{ authorFirstname }} {{ authorLastname }}</div>
-      <div class="post-actions pl-3">
-        <button @click="followButtonPress" type="button" name="follow" :class="`follow-button btn btn-${pressed ? 'follow-button followed' : 'dark'}`">
-          {{text}}</button>
-      </div>
-    </div>
+  <div class="subscription mb-1" align="center">
+    <img v-if="authorAvatar" :src="authorAvatar" class="subscription-avatar" alt="Me">
+    <p class="subscription-name">{{ authorFirstname }} {{ authorLastname }}</p>
+    <button @click="followButtonPress"
+            type="button"
+            name="follow"
+            :class="`follow-button btn btn-${pressed ? 'follow-button followed' : 'dark'}`"
+            class="mb-2"
+    >{{text}}</button>
   </div>
 </template>
 
@@ -51,6 +51,22 @@ export default {
 </script>
 
 <style scoped>
+
+.subscription {
+  border: #4d4d4d 0.1rem solid;
+  border-radius: 15px;
+  width: 100% !important;
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.subscription-avatar{
+  width: 8rem !important;
+  height: 8rem !important;
+  object-fit: cover;
+  object-position: 50% 0%;
+  border-radius: 50%;
+}
 
 .follow-button {
   background-color: #8a8a8a;
