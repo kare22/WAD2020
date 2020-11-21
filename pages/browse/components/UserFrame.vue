@@ -4,7 +4,8 @@
       <img :src="authorAvatar" alt="profile">
       <div style="margin-left: 1rem">{{ authorFirstname }} {{ authorLastname }}</div>
       <div class="post-actions pl-3">
-        <button @click="followButtonPress" type="button" name="follow" :class="`follow-button btn btn-${pressed ? 'follow-button followed' : 'dark'}`">Follow</button>
+        <button @click="followButtonPress" type="button" name="follow" :class="`follow-button btn btn-${pressed ? 'follow-button followed' : 'dark'}`">
+          {{text}}</button>
       </div>
     </div>
   </div>
@@ -15,6 +16,7 @@ export default {
   name: 'UserFrame',
   data() {
     return {
+      text: "Follow",
       pressed: false,
     };
   },
@@ -32,6 +34,11 @@ export default {
   methods: {
     followButtonPress() {
       this.pressed = !this.pressed;
+      if (this.pressed) {
+        this.text = "Followed"
+      } else {
+        this.text = "Follow"
+      }
     },
   },
   props: {
