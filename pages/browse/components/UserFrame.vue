@@ -1,93 +1,85 @@
 <template>
-  <div>
-    <div class="avatar-container">
-      <img :src="authorAvatar" alt="profile" class="subscription-avatar">
-      <p class="author-name"> {{ authorFirstname }} {{ authorLastname }}</p>
-      <div class="post-actions">
-        <button @click="followButtonPress" type="button" name="follow"
-                :class="`follow-button btn btn-${pressed ? 'follow-button followed' : 'dark'}`">
-          {{text}}
-        </button>
-      </div>
-    </div>
+  <div class="subscription mb-1" align="center">
+    <img v-if="authorAvatar" :src="authorAvatar" class="subscription-avatar" alt="Me">
+    <p class="subscription-name">{{ authorFirstname }} {{ authorLastname }}</p>
+    <button @click="followButtonPress"
+            type="button"
+            name="follow"
+            :class="`follow-button btn btn-${pressed ? 'follow-button followed' : 'dark'}`"
+            class="mb-2"
+    >{{text}}</button>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'UserFrame',
-    data() {
-      return {
-        text: "Follow",
-        pressed: false,
-      };
+export default {
+  name: 'UserFrame',
+  data() {
+    return {
+      text: "Follow",
+      pressed: false,
+    };
+  },
+  computed: {
+    authorFirstname() {
+      return this.user?.firstname || ''
     },
-    computed: {
-      authorFirstname() {
-        return this.user?.firstname || ''
-      },
-      authorLastname() {
-        return this.user?.lastname || ''
-      },
-      authorAvatar() {
-        return this.user?.avatar || ''
-      },
+    authorLastname() {
+      return this.user?.lastname || ''
     },
-    methods: {
-      followButtonPress() {
-        this.pressed = !this.pressed;
-        if (this.pressed) {
-          this.text = "Followed"
-        } else {
-          this.text = "Follow"
-        }
-      },
+    authorAvatar() {
+      return this.user?.avatar || ''
     },
-    props: {
-      user: {
-        type: Object,
-        required: true,
+  },
+  methods: {
+    followButtonPress() {
+      this.pressed = !this.pressed;
+      if (this.pressed) {
+        this.text = "Followed"
+      } else {
+        this.text = "Follow"
       }
+    },
+  },
+  props: {
+    user: {
+      type: Object,
+      required: true,
     }
   }
+}
 </script>
 
 <style scoped>
-  .avatar-container {
-    border: #4d4d4d 0.1rem solid;
-    border-radius: 15px;
-    width: 75% !important;
-    height: 20rem !important;
-    padding-top: 1rem;
-    margin-top: 1rem;
-    text-align: center;
-  }
 
-  .subscription-avatar {
-    width: 10rem !important;
-    height: 10rem !important;
-    object-fit: cover;
-    object-position: 50% 0;
-    border-radius: 50%;
-  }
+.subscription {
+  border: #4d4d4d 0.1rem solid;
+  border-radius: 15px;
+  width: 100% !important;
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
 
-  .follow-button {
-    background-color: #8a8a8a;
-    width: 120px;
-    height: 45px;
-    border: none;
-  }
+.subscription-avatar{
+  width: 8rem !important;
+  height: 8rem !important;
+  object-fit: cover;
+  object-position: 50% 0%;
+  border-radius: 50%;
+}
 
-  .follow-button.followed {
-    background-color: blueviolet;
-    color: white;
-  }
+.follow-button {
+  background-color: #8a8a8a;
+  width: 80px;
+  height: 25px;
+  line-height: 10px;
+  text-align: left;
+  border: none;
+}
 
-  .author-name {
-    font-size: larger;
-    font-weight: bold;
-    margin-top: 1rem;
-    text-align: center;
-  }
+.follow-button.followed {
+  background-color: blueviolet;
+  color: white;
+}
 
 </style>
