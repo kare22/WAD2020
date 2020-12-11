@@ -31,14 +31,25 @@ router.post('/', authorize,  (request, response) => {
 
 
 router.put('/:postId/likes', authorize, (request, response) => {
+    if(request && request.params && request.params.postId &&
+        request && request.currentUser && request.currentUser.id){
+        PostModel.like(request.currentUser.id, +request.params.postId, (data) => {
+            response.status(200).json(data);
+        });
+    }
 
-    // Endpoint for current user to like a post
+    response.status(404);
 });
 
 router.delete('/:postId/likes', authorize, (request, response) => {
+    if(request && request.params && request.params.postId &&
+        request && request.currentUser && request.currentUser.id){
+        PostModel.unlike(request.currentUser.id, +request.params.postId, (data) => {
+            response.status(200).json(data);
+        });
+    }
 
-    // Endpoint for current user to unlike a post
-
+    response.status(404);
 });
 
 module.exports = router;
