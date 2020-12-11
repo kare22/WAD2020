@@ -112,13 +112,16 @@ describe('Posts', () => {
     it('Check if post has media property that they are rendered correctly', () => {
         const posts = wrapper.findAll('.post')
         testData.forEach((t, i) => {
-            if(t.media && t.media.type) {
+            if(t.media && t.media.type) {//post has media prop
                 const media = posts.at(i).find('.post-image');
                 if(t.media.type === 'video'){
                     expect(media.find('video').exists()).toBe(true);
                 } else if(t.media.type === 'image') {
                     expect(media.find('img').exists()).toBe(true);
                 }
+            } else { //post does not have media prop
+                const media = posts.at(i).find('.post-image');
+                expect(media.exists()).toBe(false);
             }
         });
     });
