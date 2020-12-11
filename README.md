@@ -1,20 +1,25 @@
-# WAD2020
+# PostIt App
 
-## Build Setup
+### Using Vue.js frontend and Node.js/Express backend
+## Setup
 
-```bash
-# install dependencies
-$ npm install
+Backend uses embedded `sqlite3` database
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+## To Run Project
 
-# build for production and launch server
-$ npm run build
-$ npm run start
+### Backend
+`cd backend`
 
-# generate static project
-$ npm run generate
-```
+`npm install`
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+`npm run db:init (Only during the first run)`
+
+`npm start`
+    
+### Frontend
+
+`cd frontend`
+
+`npm install`
+
+`npm run serve`
