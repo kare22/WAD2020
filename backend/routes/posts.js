@@ -26,7 +26,6 @@ router.post('/', authorize,  (request, response) => {
     PostModel.create({ ...request.body, userId: request.currentUser.id }, (data) => {
         response.status(201).json(data);
     });
-
 });
 
 
@@ -36,9 +35,9 @@ router.put('/:postId/likes', authorize, (request, response) => {
         PostModel.like(request.currentUser.id, +request.params.postId, (data) => {
             response.status(200).json(data);
         });
+    } else  {
+        response.status(404);
     }
-
-    response.status(404);
 });
 
 router.delete('/:postId/likes', authorize, (request, response) => {
@@ -47,9 +46,9 @@ router.delete('/:postId/likes', authorize, (request, response) => {
         PostModel.unlike(request.currentUser.id, +request.params.postId, (data) => {
             response.status(200).json(data);
         });
+    } else {
+        response.status(404);
     }
-
-    response.status(404);
 });
 
 module.exports = router;
