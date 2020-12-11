@@ -103,4 +103,23 @@ describe('Posts', () => {
     it('1 == 1', function () {
         expect(true).toBe(true)
     });
+
+    it('Check number of posts matches testData lenght', () => {
+        const container = wrapper.find('.main-container')
+        expect(container.findAll('.post').length).toBe(testData.length);
+    });
+
+    it('Check if post has media property that they are rendered correctly', () => {
+        const posts = wrapper.findAll('.post')
+        testData.forEach((t, i) => {
+            if(t.media && t.media.type) {
+                const media = posts.at(i).find('.post-image');
+                if(t.media.type === 'video'){
+                    expect(media.find('video').exists()).toBe(true);
+                } else if(t.media.type === 'image') {
+                    expect(media.find('img').exists()).toBe(true);
+                }
+            }
+        });
+    });
 });
