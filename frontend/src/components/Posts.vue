@@ -13,7 +13,7 @@
                         <img :src="post.author.avatar" :alt="post.author | profileName"/>
                         <small>{{post.author | profileName}}</small>
                     </span>
-                    <small>{{post.createTime | formatDate}}</small>
+                    <small class="post-create-time">{{post.createTime | formatDate}}</small>
                 </span>
                 <div class="post-image" v-if="post.media">
                     <img :src="post.media.url" :alt="post.text" v-if="post.media.type === 'image'">

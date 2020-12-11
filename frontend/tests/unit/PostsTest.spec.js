@@ -2,6 +2,7 @@ import {mount, createLocalVue} from '@vue/test-utils'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 import Posts from "../../src/components/Posts.vue";
+import moment from 'moment';
 
 const localVue = createLocalVue();
 
@@ -125,4 +126,13 @@ describe('Posts', () => {
             }
         });
     });
+
+    it('Test that post create time is displayed correctly -> December 5, 2020 1:53 PM', () => {
+        const dates = wrapper.findAll('.post-create-time');
+        for ( let i = 0; i < dates.length; i++ ) {
+            const date = dates.at(i).text();
+            const format = 'LLLL';
+            expect(moment(date, format, true).isValid()).toBe(true);
+        }
+    })
 });
