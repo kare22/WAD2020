@@ -3,6 +3,7 @@ const router = express.Router();
 const authorize = require('../middlewares/authorize');
 const UserModel = require('../models/UserModel');
 const FollowModel = require('../models/FollowModel');
+const jwt = require('../library/jwt');
 
 // Public endpoints
 router.post('/', (request, response) => {
@@ -78,6 +79,10 @@ router.post('/login', (request, response) => {
             response.status(404).json(invalidCredentials);
             return;
         }
+        const token = jwt.createAccessToken({
+            id: user.id,
+            email,
+        });
 
         response.json({
             id: user.id,
@@ -85,7 +90,7 @@ router.post('/login', (request, response) => {
             lastname: user.lastname,
             email: user.email,
             avatar: user.avatar,
-            accessToken: null // THis is the place where you should pass generated access token
+            accessToken: token // THis is the place where you should pass generated access token
         })
     });
 });

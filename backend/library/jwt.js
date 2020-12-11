@@ -11,6 +11,9 @@ const jwt = {
     },
     verifyAccessToken: (token) => {
         try {
+            if (token.includes('Bearer')) {
+                token = token.split(' ')[1];
+            }
             return JsonWebToken.verify(token, SECRET);
         } catch (err) {
             return false;
