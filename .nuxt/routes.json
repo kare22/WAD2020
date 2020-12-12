@@ -1,0 +1,38 @@
+[
+  {
+    "name": "browse",
+    "path": "/browse",
+    "component": "C:\\\\Users\\\\carmen akkermann\\\\WebstormProjects\\\\WAD2020\\\\pages\\\\browse\\\\index.vue",
+    "chunkName": "pages/browse/index"
+  },
+  {
+    "name": "login",
+    "path": "/login",
+    "component": "C:\\\\Users\\\\carmen akkermann\\\\WebstormProjects\\\\WAD2020\\\\pages\\\\login\\\\index.vue",
+    "chunkName": "pages/login/index"
+  },
+  {
+    "name": "posts",
+    "path": "/posts",
+    "component": "C:\\\\Users\\\\carmen akkermann\\\\WebstormProjects\\\\WAD2020\\\\pages\\\\posts\\\\index.vue",
+    "chunkName": "pages/posts/index"
+  },
+  {
+    "name": "browse-components-UserFrame",
+    "path": "/browse/components/UserFrame",
+    "component": "C:\\\\Users\\\\carmen akkermann\\\\WebstormProjects\\\\WAD2020\\\\pages\\\\browse\\\\components\\\\UserFrame.vue",
+    "chunkName": "pages/browse/components/UserFrame"
+  },
+  {
+    "name": "posts-components-Post",
+    "path": "/posts/components/Post",
+    "component": "C:\\\\Users\\\\carmen akkermann\\\\WebstormProjects\\\\WAD2020\\\\pages\\\\posts\\\\components\\\\Post.vue",
+    "chunkName": "pages/posts/components/Post"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "C:\\\\Users\\\\carmen akkermann\\\\WebstormProjects\\\\WAD2020\\\\pages\\\\index.vue",
+    "chunkName": "pages/index"
+  }
+]

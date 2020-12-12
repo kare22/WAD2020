@@ -15,8 +15,7 @@ router.get('/', authorize, (request, response) => {
             });
             return;
         }
-        response.json([])
-
+        response.status(404).json([]);
     })
 
 });
